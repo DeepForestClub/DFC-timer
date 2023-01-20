@@ -159,7 +159,6 @@ function getMessage(language, messageKey) {
       'error-invalid': '內部狀態無效，請提交錯誤報告。',
     },
   };
-
   // Special case:
   // The 'test' language just echoes the message key back out.
   if (language === 'test') {
