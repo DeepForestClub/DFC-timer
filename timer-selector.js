@@ -443,7 +443,7 @@ function setup() {
 
   // Check parameters
   if (!language) {
-    setError('No language set', 'Parameter is "lang". Use "en" for English.');
+    setError('No language set', 'Parameter is "lang" Use language code.');
     return;
   }
 
