@@ -76,9 +76,13 @@ h2.title{
     font-weight: 400;
     margin-block-start: 0.3em!important;
     margin-block-end: 0.3em!important;
-    font-size: 1.25em;
+    font-size: 1.20em;
 }
 #timer{
     background: #eee;
+    border-radius: 10px;
+}
+#clock{
+    background: #fff;
     border-radius: 10px;
 }
