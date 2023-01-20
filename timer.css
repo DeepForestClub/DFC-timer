@@ -32,9 +32,6 @@ fieldset {
 }
 
 /* Basic utility classes */
-.hidden {
-  display: none;
-}
 
 #error {
   text-align: center;
@@ -53,4 +50,26 @@ fieldset {
 .unit{
     display: inline-block;
     margin:5px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.unit{
+    float: left;
+    margin-right: 7px;
+}
+.unit-value{
+    font-family: "Courier New","Ubuntu Mono",monospace;
+    font-size: 30px;
+    background: #aaa;
+    color:#000;
+    font-weight: 200;
+}
+.unit-label{
+    font-size: 20px;
+    font-family: "Microsoft Yahei UI","PingFang SC","宋体",sans-serif;
+    font-weight: 300;
 }
