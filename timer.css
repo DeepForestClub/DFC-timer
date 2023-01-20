@@ -50,8 +50,7 @@ fieldset {
   margin: 0.25em;
 }
 
-#clock{
-    border: #ff0000;
-    border-style: solid;
-    white-space:nowrap;
+.unit{
+    float: left;
+    width: 50px;
 }
