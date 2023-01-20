@@ -5,7 +5,7 @@
 详细的使用方式请阅读 https://timeline-bookstore.github.io/TLB-timer/index.html
 
 ## 许可证信息
-本计时器工具根据[MIT许可证](LICENSE)的条款内容进行授权。
+本计时器工具根据[MIT许可证](LICENSE.md)的条款内容进行授权。
 
 按“原样”提供，不提供任何形式的保证，这包括但不限于保证适销性、特定用途适用性和不侵权。
 
