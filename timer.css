@@ -51,6 +51,6 @@ fieldset {
 }
 
 .unit{
-    float: left;
-    width: 50px;
+    display: inline-block;
+    margin:5px;
 }
