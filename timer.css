@@ -60,14 +60,14 @@ fieldset {
 
 .unit-value{
     font-family: "Courier New","Ubuntu Mono",monospace;
-    font-size: 30px;
+    font-size: 25px;
     background: #d2d2d2;
     color: #000;
     font-weight: 200;
     border-radius: 3px;
 }
 .unit-label{
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Microsoft Yahei UI","PingFang SC","宋体",sans-serif;
     font-weight: 300;
 }
@@ -81,14 +81,13 @@ h2.title{
 #timer{
     background: #eee;
     border-radius: 10px;
-    height: 125px
+    padding-bottom: 10px;
 }
 #clock{
     background: #fff;
     border-radius: 10px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     margin-right: 12px;
     margin-left: 12px;
-    height: 50px;
 }
