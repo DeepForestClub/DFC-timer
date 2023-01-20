@@ -4,7 +4,7 @@ var MINUTES_MS = SECONDS_MS * 60;
 var HOURS_MS = MINUTES_MS * 60;
 var DAYS_MS = HOURS_MS * 24;
 
-// Initialization errors are only in English unfortunately.
+// Initialization errors are only in English unfortunately
 function setError(primary, secondary = null) {
   var errorElement = document.getElementById('error');
   errorElement.classList.remove('hidden');
