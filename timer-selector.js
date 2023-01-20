@@ -217,7 +217,7 @@ function buildUrl(language, startDate, durationMs, progressMessage, finishedMess
 
 function buildWikitext(template, url, height, width) {
   var iframe = [
-    '[[iframe ', url, ' style="width: ', width, '; height: ', height, '; border: 0; text-align: center;"]]',
+    '[[iframe ', url, ' style="width: ', width, '; height: ', height, '; border: 0; text-align: center;" scrolling="no"]]',
   ].join('');
 
   return template
