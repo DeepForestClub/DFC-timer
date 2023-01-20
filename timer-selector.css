@@ -49,3 +49,8 @@ fieldset {
   font-family: 'Droid Sans Mono', 'DejaVu Sans Mono', monospace;
   margin: 0.25em;
 }
+
+#clock{
+    border: #ff0000;
+    white-space:nowrap;
+}
