@@ -52,5 +52,6 @@ fieldset {
 
 #clock{
     border: #ff0000;
+    border-style: solid;
     white-space:nowrap;
 }
