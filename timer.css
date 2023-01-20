@@ -1,6 +1,7 @@
 /* Main elements */
 body {
   font-family: Arial, sans-serif;
+  text-align: center;
 }
 
 fieldset {
@@ -60,7 +61,7 @@ fieldset {
 .unit-value{
     font-family: "Courier New","Ubuntu Mono",monospace;
     font-size: 30px;
-    background: #aaa;
+    background: #d2d2d2;
     color:#000;
     font-weight: 200;
     border-radius: 3px;
@@ -71,7 +72,6 @@ fieldset {
     font-weight: 300;
 }
 h2.title{
-    text-align: center;
     font-family: "Microsoft Yahei UI","PingFang SC","宋体",sans-serif;
     font-weight: 400;
 }
