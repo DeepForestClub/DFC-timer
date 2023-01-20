@@ -60,7 +60,7 @@ fieldset {
 
 .unit-value{
     font-family: "Courier New","Ubuntu Mono",monospace;
-    font-size: 30px;
+    font-size: 27px;
     background: #d2d2d2;
     color:#000;
     font-weight: 200;
@@ -76,6 +76,7 @@ h2.title{
     font-weight: 400;
     margin-block-start: 0.3em!important;
     margin-block-end: 0.3em!important;
+    font-size: 1.25em;
 }
 #clock{
     background: #eee;
