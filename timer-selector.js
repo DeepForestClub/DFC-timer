@@ -56,7 +56,7 @@ function getMessage(language, messageKey) {
       'width': 'Width',
       'css-extra': 'Custom timer CSS (optional)',
       'template': 'Output template',
-      'template-deletion': 'Since the score of this article/character/world has been as low as -X,it is hereby announced that this pages will bedeled: \n\n%%ifame%%\n\nPlease the article/character/world author will revise it as soon as possible.nnlf the author of the pages cannot make changes in time,you can apply to the website team for a rewrite after determining the situation.',
+      'template-deletion': 'Since the score of this article/character/world has been as low as -X,it is hereby announced that this pages will bedeled: \n\n%%iframe%%\n\nPlease the article/character/world author will revise it as soon as possible.nnlf the author of the pages cannot make changes in time,you can apply to the website team for a rewrite after determining the situation.',
       'template-ban': 'Website member [[*user USERNAME]] [VIOLATION],violated the site rule [SITE RULE ENTRY NUMBER],whicn cansed a greater impact on the website.\nTherefore,according to the site rules,website member [[*user USERNAME]] will be banned.\n\n%%ifame%%\n\nIf you have questions about this outcome,you can contact the website master team.\nThis judgment allows for appeal.',
       'message-deletion-progress': 'This page will be eligible for deletion in',
       'message-deletion-finished': 'This page has been eligible for deletion since',
