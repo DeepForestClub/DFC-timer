@@ -1,8 +1,8 @@
-## TLB计时器
-用来生成外链到TLB维基的页面或讨论区帖子的计时器工具。
+## DFC计时器
+用来生成外链到DFC Wiki的页面或讨论区帖子的计时器工具。
 
 ## 使用方式
-详细的使用方式请阅读 https://timeline-bookstore.github.io/TLB-timer/index.html
+详细的使用方式请阅读 https://deepforest-club.github.io/TLB-timer/index.html
 
 ## 许可证信息
 本计时器工具根据[MIT许可证](LICENSE.md)的条款内容进行授权。
@@ -16,6 +16,6 @@
 ```
 scpwiki/timer
 Copyright (c) 2022 The SCP Wiki
-TimeLine-Bookstore/TLB-timer
-Copyright (c) 2023 TimeLine-Bookstore
+DeepForest-Club/DFC-timer
+Copyright (c) 2023 DeepForest-Club
 ```
