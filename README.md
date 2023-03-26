@@ -1,5 +1,5 @@
 ## DFC计时器
-用来生成外链到DFC Wiki的页面或讨论区帖子的计时器工具。
+用来生成外链到深林文学部的页面或讨论区帖子的计时器工具。
 
 ## 使用方式
 详细的使用方式请阅读 https://deepforest-club.github.io/TLB-timer/index.html
