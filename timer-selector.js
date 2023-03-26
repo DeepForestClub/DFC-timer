@@ -167,7 +167,7 @@ function buildUrl(language, startDate, durationMs, progressMessage, finishedMess
     parameters.append('style', styling);
   }
 
-  return 'https://timeline-bookstore.github.io/TLB-timer/timer.html?' + parameters;
+  return 'https://deepforest-club.github.io/DFC-timer/timer.html?' + parameters;
 }
 
 function buildWikitext(template, url, height, width) {
