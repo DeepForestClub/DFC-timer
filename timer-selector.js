@@ -83,7 +83,7 @@ function getMessage(language, messageKey) {
       'duration-1w': '1周',
       'duration-2w': '2周',
       'duration-1y': '1年',
-      'duration-custom': '你抉定',
+      'duration-custom': '自定義',
       'unit-minute': '分鐘',
       'unit-hour': '小時',
       'unit-day': '日',
