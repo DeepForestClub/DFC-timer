@@ -33,6 +33,7 @@ function getMessage(language, messageKey) {
       'timer-type-generic': '通用',
       'timer-type-deletion': '删除',
       'timer-type-ban': '封禁',
+      'time-type-restrict': '限制',
       'duration': '运行时间',
       'duration-1d': '1日',
       'duration-1w': '1周',
@@ -57,11 +58,14 @@ function getMessage(language, messageKey) {
       'css-extra': '自定计时器样式（可选）',
       'template': '输出模板',
       'template-deletion': '因为本文章评分已低至了-X的低分，在此宣告将删除此页面：\n\n%%iframe%%\n\n请本文章作者尽快进行修改。\n如果该页面作者无法及时做出更改，你也可以在确认后向站务团队申请重写。',
-      'template-ban': '网站成员[[*user USERNAME]]【违规行为】，违反了网站站规【网站站规条目号】，依据网站站规，将对网站成员[[*user USERNAME]]进行封禁惩罚。\n\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系站务团队。\n本次处分允许上诉。',
+      'template-ban': '网站成员[[*user USERNAME]]【违规行为】，违反了网站站规【网站站规条目号】，依据网站站规，将对网站成员[[*user USERNAME]]进行封禁处分。\n\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系站务团队。\n本次处分允许上诉。',
+      'template-restrict': '网站成员[[*user USERNAME]]【违规行为】，滥用相应功能并违反了网站站规【网站站规条目号】，将对网站成员[[*user USERNAME]]进行限制 讨论/页面 功能的处分。\n\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系站务团队。\n本次处分允许上诉。',
       'message-deletion-progress': '此页面将在计时器到期后可供删除：',
       'message-deletion-finished': '此页面在下列时间可前已可供删除：',
       'message-ban-progress': '此用户的封禁将到期于：',
       'message-ban-finished': '此用户的封禁已到期：',
+      'message-restrict-progress': '此用户的限制将到期于：',
+      'message-restrict-finished': '此用户的限制已到期：',
       'build-timer': '生成计时器',
       'info-help': '帮助',
       'info-source': '来源',
@@ -78,6 +82,7 @@ function getMessage(language, messageKey) {
       'timer-type-generic': '通用',
       'timer-type-deletion': '刪除',
       'timer-type-ban': '封禁',
+      'time-type-restrict': '限制',
       'duration': '運行時間',
       'duration-1d': '1日',
       'duration-1w': '1周',
@@ -102,11 +107,14 @@ function getMessage(language, messageKey) {
       'css-extra': '自定義計時器樣式（可選）',
       'template': '輸出内容模板',
       'template-deletion': '因爲本文章評分已低到-X分，故此宣告將刪除此頁面：\n\n%%iframe%%\n\n請本文章的作者快速修改内容提高質量。\n如果該頁面作者無法及時的修改，你也可以在確認后向站務團隊申請重寫。',
-      'template-ban': '網站成員[[*user USERNAME]]【違規行爲】，違反了網站站規【網站站規條目號】，依據網站站規，將對網站成員[[*user USERNAME]]進行封禁懲罰。\n\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係站務團隊。\n本次處分允許上訴。',
+      'template-ban': '網站成員[[*user USERNAME]]【違規行爲】，違反了網站站規【網站站規條目號】，依據網站站規，對[[*user USERNAME]]進行封禁處分。\n\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係站務團隊。\n本次處分允許上訴。',
+      'template-restrict': '網站成員[[*user USERNAME]]【違規行爲】，濫用相應功能并違反了網站規定【網站站規條目號】，將對網站成員[[*user USERNAME]]進行限制 討論/頁面 功能的處分。\n\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係站務團隊。\n本次處分允許上訴。',
       'message-deletion-progress': '此页面将在计时器到期后可供删除：',
       'message-deletion-finished': '此页面在下列时间可前已可供删除：',
       'message-ban-progress': '此用户的封禁将過期于：',
       'message-ban-finished': '此用戶的封禁已過期：',
+      'message-restrict-progress': '此用户的限制将過期于：',
+      'message-restrict-finished': '此用戶的限制已過期：',
       'build-timer': '生成計時器',
       'info-help': '幫助',
       'info-source': '來源',
@@ -313,6 +321,7 @@ function initializeMessages(language) {
   setMessage('timer-type-generic-label', 'timer-type-generic');
   setMessage('timer-type-deletion-label', 'timer-type-deletion');
   setMessage('timer-type-ban-label', 'timer-type-ban');
+  setMessage('timer-type-restrict-label', 'timer-type-restrict');
 
   setMessage('start-label', 'start-time');
   setMessage('start-now-label', 'start-time-now');
@@ -368,6 +377,12 @@ function initializeHooks(language) {
     document.getElementById('message-progress').value = getMessage(language, 'message-ban-progress');
     document.getElementById('message-finished').value = getMessage(language, 'message-ban-finished');
     document.getElementById('template').value = getMessage(language, 'template-ban');
+  };
+  
+  document.getElementById('timer-type-restrict').onclick = function () {
+    document.getElementById('message-progress').value = getMessage(language, 'message-restrict-progress');
+    document.getElementById('message-finished').value = getMessage(language, 'message-restrict-finished');
+    document.getElementById('template').value = getMessage(language, 'template-restrict');
   };
 
   function onClickStartDate() {
