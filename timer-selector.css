@@ -33,8 +33,6 @@ fieldset {
 
 #custom-css,#template,#output {
   width: 79.2%;
-  overflow: hidden;
-  display: flex;
 }
 
 /* Basic utility classes */
