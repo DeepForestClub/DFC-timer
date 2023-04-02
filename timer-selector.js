@@ -99,7 +99,7 @@ function getMessage(language, messageKey) {
       'advanced-section': '高級設置',
       'height': '高度',
       'width': '寬度',
-      'css-extra': '自覺得計時器樣式（可選）',
+      'css-extra': '自定義計時器樣式（可選）',
       'template': '輸出内容模板',
       'template-deletion': '因爲本文章評分已低到-X分，故此宣告將刪除此頁面：\n\n%%iframe%%\n\n請本文章的作者快速修改内容提高質量。\n如果該頁面作者無法及時的修改，你也可以在確認后向站務團隊申請重寫。',
       'template-ban': '網站成員[[*user USERNAME]]【違規行爲】，違反了網站站規【網站站規條目號】，依據網站站規，將對網站成員[[*user USERNAME]]進行封禁懲罰。\n\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係站務團隊。\n本次處分允許上訴。',
