@@ -4,38 +4,43 @@ body {
   text-align: center;
 }
 
-fieldset {
-  margin: 0.2em;
+#title {
+  text-align: center;
+  font-size: 1.35em;
 }
 
-.radio-text {
-  margin-left: 0.2em;
+#clock {
+  text-align: center;
+  background-color: #eee;
+  border-radius: 0.25em;
+  display: inline-flex;
 }
 
-.text {
-  margin-top: 0.2em;
+.unit {
+  display: inline-block;
+  margin: 0.5em;
+  display: flex;
+  flex-direction: column;
 }
 
-.text input {
-  width: 50%;
+.unit-value {
+  font-family: 'Droid Sans Mono', 'DejaVu Sans Mono', monospace;
+  font-size: 2em;
+  background-color: #ccc;
+  border-radius: 0.25em;
+  padding: 0.15em;
 }
 
-.text-short input {
-  width: 25%;
-}
-
-#build {
-  margin: 0.4em;
-}
-
-.info {
-  font-size: 0.8em;
+.unit-label {
+  font-size: 1em;
 }
 
 /* Basic utility classes */
+.hidden {
+  display: none;
+}
 
-#error {
-  text-align: center;
+.error {
   color: #b01;
 }
 
@@ -43,51 +48,10 @@ fieldset {
   font-size: 0.6em;
 }
 
-#output {
-  font-family: 'Droid Sans Mono', 'DejaVu Sans Mono', monospace;
-  margin: 0.25em;
+.progress {
+  color: black;
 }
 
-.unit{
-    display: inline-block;
-    margin:7px;
-}
-
-
-.hidden {
-  display: none;
-}
-
-.unit-value{
-    font-family: "Courier New","Ubuntu Mono",monospace;
-    font-size: 25px;
-    background: #d2d2d2;
-    color: #000;
-    font-weight: 200;
-    border-radius: 3px;
-}
-.unit-label{
-    font-size: 14px;
-    font-family: "Microsoft Yahei UI","PingFang SC","宋体",sans-serif;
-    font-weight: 300;
-}
-h2.title{
-    font-family: "Microsoft Yahei UI","PingFang SC","宋体",sans-serif;
-    font-weight: 400;
-    margin-block-start: 0.3em!important;
-    margin-block-end: 0.3em!important;
-    font-size: 1.20em;
-}
-#timer{
-    background: #eee;
-    border-radius: 10.5px;
-    padding-bottom: 10.5px;
-}
-#clock{
-    background: #fff;
-    border-radius: 10px;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    margin-right: 12px;
-    margin-left: 12px;
+.finished {
+  color: #282;
 }
