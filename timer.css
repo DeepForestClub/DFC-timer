@@ -15,10 +15,11 @@ body {
 #clock {
   text-align: center;
   background-color: #eee;
-  border-radius: 0.25em;
+  border-radius: 0.2em;
   display: inline-flex;
   width: 100%;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .unit {
@@ -30,10 +31,10 @@ body {
 
 .unit-value {
   font-family: 'Droid Sans Mono', 'DejaVu Sans Mono', monospace;
-  font-size: 1.6em;
+  font-size: 1.5em;
   background-color: #ccc;
   border-radius: 0.25em;
-  padding: 0.14em;
+  padding: 0.12em;
 }
 
 .unit-label {
