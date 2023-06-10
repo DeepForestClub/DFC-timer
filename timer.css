@@ -19,7 +19,6 @@ body {
   display: inline-flex;
   width: 100%;
   justify-content: center;
-  /*! overflow-y: auto; */
 }
 
 .unit {
