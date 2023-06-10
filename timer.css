@@ -2,11 +2,14 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
+  overflow: hidden;
 }
 
 #title {
   text-align: center;
-  font-size: 1.35em;
+  font-size: 1.4em;
+  display: flex;
+  justify-content: center;
 }
 
 #clock {
@@ -14,6 +17,9 @@ body {
   background-color: #eee;
   border-radius: 0.25em;
   display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  /*! overflow-y: auto; */
 }
 
 .unit {
@@ -25,14 +31,14 @@ body {
 
 .unit-value {
   font-family: 'Droid Sans Mono', 'DejaVu Sans Mono', monospace;
-  font-size: 2em;
+  font-size: 1.6em;
   background-color: #ccc;
   border-radius: 0.25em;
-  padding: 0.15em;
+  padding: 0.14em;
 }
 
 .unit-label {
-  font-size: 1em;
+  font-size: 0.85em;
 }
 
 /* Basic utility classes */
