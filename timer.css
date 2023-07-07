@@ -8,6 +8,9 @@ body {
   font-size: 1.2em;
   display: flex;
   justify-content: center;
+  background-color: #eee;
+  border-radius: 0.2em;
+  width: 100%;
 }
 
 #clock {
