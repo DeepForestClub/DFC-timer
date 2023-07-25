@@ -175,7 +175,7 @@ function buildUrl(language, startDate, durationMs, progressMessage, finishedMess
     parameters.append('style', styling);
   }
 
-  return 'https://deepforest-club.github.io/DFC-timer/timer.html?' + parameters;
+  return 'https://deepforestclub.github.io/DFC-timer/timer.html?' + parameters;
 }
 
 function buildWikitext(template, url, height, width) {
