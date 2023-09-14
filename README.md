@@ -9,7 +9,7 @@
 
 按“原样”提供，不提供任何形式的保证，这包括但不限于保证适销性、特定用途适用性和不侵权。
 
-代码与原理参考了[SCP Wiki团队](https://github.com/scpwiki)所制作的[Timer](https://github.com/scpwiki/timer)，同样使用[MIT许可证](https://github.com/scpwiki/timer/blob/main/LICENSE.md)，在此对其表示感谢。
+代码与原理参考了[SCP Wiki](https://github.com/scpwiki)所制作的[Timer](https://github.com/scpwiki/timer)，同样使用[MIT许可证](https://github.com/scpwiki/timer/blob/main/LICENSE.md)，在此对其表示感谢。
 
 ---------
 
