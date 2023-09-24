@@ -1,9 +1,6 @@
 ## DFC计时器
 用来生成外链到深林文学部的页面或讨论区帖子的计时器工具。
 
-## 使用方式
-详细的使用方式请阅读 https://deepforest-club.github.io/DFC-timer/index.html
-
 ## 许可证信息
 本计时器工具根据[MIT许可证](LICENSE.md)的条款内容进行授权。
 
