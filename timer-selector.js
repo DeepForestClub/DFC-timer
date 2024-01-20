@@ -33,7 +33,7 @@ function getMessage(language, messageKey) {
       'timer-type-generic': '通用',
       'timer-type-deletion': '删除',
       'timer-type-ban': '封禁',
-      'timer-type-restrict': '限制',
+      'timer-type-shield': '屏蔽',
       'duration': '运行时间',
       'duration-1d': '1日',
       'duration-1w': '1周',
@@ -59,13 +59,13 @@ function getMessage(language, messageKey) {
       'template': '输出模板',
       'template-deletion': '因为本文章评分已低至了-X的低分，在此宣告将删除此页面：\n\n%%iframe%%\n\n请本文章作者尽快进行修改。\n如果该页面作者无法及时做出更改，你也可以在确认后向管理组申请重写。',
       'template-ban': '网站成员[[*user USERNAME]]【违规行为】，违反了网站站规【网站站规条目号】，依据网站站规，将对网站成员[[*user USERNAME]]进行封禁处分。\n\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。\n本次处分允许上诉。',
-      'template-restrict': '网站成员[[*user USERNAME]]【违规行为】，滥用相应功能并违反了网站站规【网站站规条目号】，将对网站成员[[*user USERNAME]]进行限制讨论功能的处分。\n\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。\n本次处分允许上诉。',
+      'template-shield': '网站成员[[*user USERNAME]]【违规行为】，滥用相应功能并违反了网站站规【网站站规条目号】，将对网站成员[[*user USERNAME]]进行限制讨论功能的处分。\n\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。\n本次处分允许上诉。',
       'message-deletion-progress': '此页面将在以下时间后删除：',
       'message-deletion-finished': '此页面在以下时间前可删除：',
       'message-ban-progress': '此用户封禁将到期于：',
       'message-ban-finished': '此用户封禁已到期：',
-      'message-restrict-progress': '此用户限制将到期于：',
-      'message-restrict-finished': '此用户限制已到期：',
+      'message-shield-progress': '此讨论屏蔽将到期于：',
+      'message-shield-finished': '此讨论屏蔽已到期：',
       'build-timer': '生成计时器',
       'info-help': '帮助',
       'info-source': '来源',
@@ -82,7 +82,7 @@ function getMessage(language, messageKey) {
       'timer-type-generic': '通用',
       'timer-type-deletion': '刪除',
       'timer-type-ban': '封禁',
-      'timer-type-restrict': '限制',
+      'timer-type-shield': '屏蔽',
       'duration': '運行時間',
       'duration-1d': '1日',
       'duration-1w': '1周',
@@ -108,13 +108,13 @@ function getMessage(language, messageKey) {
       'template': '輸出内容模板',
       'template-deletion': '因爲本文章評分已低到-X分，故此宣告將刪除此頁面：\n\n%%iframe%%\n\n請本文章的作者快速修改内容提高質量。\n如果該頁面作者無法及時的修改，你也可以在確認后向管理組申請重寫。',
       'template-ban': '網站成員[[*user USERNAME]]【違規行爲】，違反了網站站規【網站站規條目號】，依據網站站規，對[[*user USERNAME]]進行封禁處分。\n\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係管理組。\n本次處分允許上訴。',
-      'template-restrict': '網站成員[[*user USERNAME]]【違規行爲】，濫用相應功能并違反了網站規定【網站站規條目號】，將對網站成員[[*user USERNAME]]進行限制討論功能的處分。\n\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係管理組。\n本次處分允許上訴。',
+      'template-shield': '網站成員[[*user USERNAME]]【違規行爲】，濫用相應功能并違反了網站規定【網站站規條目號】，將對網站成員[[*user USERNAME]]進行限制討論功能的處分。\n\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係管理組。\n本次處分允許上訴。',
       'message-deletion-progress': '此頁面將在以下時間後刪除：',
       'message-deletion-finished': '此頁面在以下時間前可刪除：',
-      'message-ban-progress': '此用户封禁将過期于：',
+      'message-ban-progress': '此用戶封禁将過期于：',
       'message-ban-finished': '此用戶封禁已過期：',
-      'message-restrict-progress': '此用户限制将過期于：',
-      'message-restrict-finished': '此用戶限制已過期：',
+      'message-shield-progress': '此討論屏蔽将過期于：',
+      'message-shield-finished': '此討論屏蔽已過期：',
       'build-timer': '生成計時器',
       'info-help': '幫助',
       'info-source': '來源',
@@ -321,7 +321,7 @@ function initializeMessages(language) {
   setMessage('timer-type-generic-label', 'timer-type-generic');
   setMessage('timer-type-deletion-label', 'timer-type-deletion');
   setMessage('timer-type-ban-label', 'timer-type-ban');
-  setMessage('timer-type-restrict-label', 'timer-type-restrict');
+  setMessage('timer-type-shield-label', 'timer-type-shield');
 
   setMessage('start-label', 'start-time');
   setMessage('start-now-label', 'start-time-now');
@@ -379,10 +379,10 @@ function initializeHooks(language) {
     document.getElementById('template').value = getMessage(language, 'template-ban');
   };
   
-  document.getElementById('timer-type-restrict').onclick = function () {
-    document.getElementById('message-progress').value = getMessage(language, 'message-restrict-progress');
-    document.getElementById('message-finished').value = getMessage(language, 'message-restrict-finished');
-    document.getElementById('template').value = getMessage(language, 'template-restrict');
+  document.getElementById('timer-type-shield').onclick = function () {
+    document.getElementById('message-progress').value = getMessage(language, 'message-shield-progress');
+    document.getElementById('message-finished').value = getMessage(language, 'message-shield-finished');
+    document.getElementById('template').value = getMessage(language, 'template-shield');
   };
 
   function onClickStartDate() {
