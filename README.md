@@ -14,5 +14,5 @@
 scpwiki/timer
 Copyright (c) 2022 The SCP Wiki
 DeepForest-Club/DFC-timer
-Copyright (c) 2023 DeepForest-Club
+Copyright (c) 2023 DeepForestClub
 ```
