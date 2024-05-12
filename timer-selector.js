@@ -58,8 +58,8 @@ function getMessage(language, messageKey) {
       'css-extra': '自定计时器样式（可选）',
       'template': '输出模板',
       'template-deletion': '因为本文章评分已低至了-X的低分，在此宣告将删除此页面：\n\n%%iframe%%\n\n请本文章作者尽快进行修改。\n如果该页面作者无法及时做出更改，你也可以在确认后向管理组申请重写。',
-      'template-ban': '网站成员[[*user USERNAME]]【违规行为】，违反了网站站规【网站站规条目号】，依据网站站规，将对网站成员[[*user USERNAME]]进行封禁处分。\n\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。\n本次处分允许上诉。',
-      'template-shield': '网站成员[[*user USERNAME]]【违规行为】，滥用相应功能并违反了网站站规【网站站规条目号】，将对网站成员[[*user USERNAME]]进行限制讨论功能的处分。\n\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。\n本次处分允许上诉。',
+      'template-ban': '[[div class=\"blockquote\"]]\n**XXXX年XX月XX日：**网站成员[[*user USERNAME]]【违规行为】，根据以下规则和内容：\n【网站站规内容】\n\n将要对该网站成员进行封禁处分：\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。本次处分允许\\不允许申诉。\n[[/div]]',
+      'template-shield': '[[div class=\"blockquote\"]]\n**XXXX年XX月XX日：**网站成员[[*user USERNAME]]【违规行为】，其滥用功能并根据以下规则和内容：\n【网站站规内容】\n\n将要对该网站成员进行限制讨论功能的处分：\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。本次处分允许\\不允许申诉。\n[[/div]]',
       'message-deletion-progress': '此页面将在以下时间后删除：',
       'message-deletion-finished': '此页面在以下时间前可删除：',
       'message-ban-progress': '此用户封禁将到期于：',
@@ -72,8 +72,8 @@ function getMessage(language, messageKey) {
       'error-missing': '请先在每个项中做选择。',
       'error-invalid': '内部状态无效，请提交错误报告。',
     },
-    
-     // Traditional Chinese
+
+    // Traditional Chinese
     'zh-hant': {
       'timer-description': '此計時器將過期于：',
       'timer-progress': '此計時器將過期于：',
@@ -107,8 +107,8 @@ function getMessage(language, messageKey) {
       'css-extra': '自定義計時器樣式（可選）',
       'template': '輸出内容模板',
       'template-deletion': '因爲本文章評分已低到-X分，故此宣告將刪除此頁面：\n\n%%iframe%%\n\n請本文章的作者快速修改内容提高質量。\n如果該頁面作者無法及時的修改，你也可以在確認后向管理組申請重寫。',
-      'template-ban': '網站成員[[*user USERNAME]]【違規行爲】，違反了網站站規【網站站規條目號】，依據網站站規，對[[*user USERNAME]]進行封禁處分。\n\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係管理組。\n本次處分允許上訴。',
-      'template-shield': '網站成員[[*user USERNAME]]【違規行爲】，濫用相應功能并違反了網站規定【網站站規條目號】，將對網站成員[[*user USERNAME]]進行限制討論功能的處分。\n\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係管理組。\n本次處分允許上訴。',
+      'template-ban': '[[div class=\"blockquote\"]]\n**XXXX年XX月XX日：**網站成員[[*user USERNAME]]【違規行爲】，根據以下規則和内容：\n【網站站規内容】\n\n將要對該網站成員進行封禁處分：\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係管理組。本次處分允許\\不允許申訴。\n[[/div]]',
+      'template-shield': '[[div class=\"blockquote\"]]\n**XXXX年XX月XX日：**網站成員[[*user USERNAME]]【違規行爲】，其濫用功能並根據以下規則和内容：\n【網站站規内容】\n\n將要對該網站成員進行限制討論功能的處分：\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係管理組。本次處分允許\\不允許申訴。\n[[/div]]',
       'message-deletion-progress': '此頁面將在以下時間後刪除：',
       'message-deletion-finished': '此頁面在以下時間前可刪除：',
       'message-ban-progress': '此用戶封禁将過期于：',
@@ -118,7 +118,7 @@ function getMessage(language, messageKey) {
       'build-timer': '生成計時器',
       'info-help': '幫助',
       'info-source': '來源',
-      'error-missing': '請先在每一個選擇項完成選擇。',
+      'error-missing': '請先在每個選擇項完成選擇。',
       'error-invalid': '內部狀態無效，請提交錯誤報告。',
     },
   };
@@ -378,7 +378,7 @@ function initializeHooks(language) {
     document.getElementById('message-finished').value = getMessage(language, 'message-ban-finished');
     document.getElementById('template').value = getMessage(language, 'template-ban');
   };
-  
+
   document.getElementById('timer-type-shield').onclick = function () {
     document.getElementById('message-progress').value = getMessage(language, 'message-shield-progress');
     document.getElementById('message-finished').value = getMessage(language, 'message-shield-finished');

@@ -31,7 +31,9 @@ fieldset {
   font-size: 0.8em;
 }
 
-#custom-css,#template,#output {
+#custom-css,
+#template,
+#output {
   width: 79.2%;
 }
 
@@ -54,8 +56,8 @@ fieldset {
   margin: 0.25em;
 }
 
-#clock{
-    border: #ff0000;
-    border-style: solid;
-    white-space:nowrap;
+#clock {
+  border: #ff0000;
+  border-style: solid;
+  white-space: nowrap;
 }

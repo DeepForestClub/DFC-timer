@@ -43,7 +43,7 @@ function getMessage(language, messageKey) {
       'minutes': '分',
       'seconds': '秒',
     },
-    
+
     // Traditional Chinese
     'zh-hant': {
       'timer-description': '此計時器將过期於：',
