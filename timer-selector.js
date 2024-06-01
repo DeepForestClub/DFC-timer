@@ -175,7 +175,7 @@ function buildUrl(language, startDate, durationMs, progressMessage, finishedMess
     parameters.append('style', styling);
   }
 
-  return 'https://timerdfc.netlify.app/timer.html?' + parameters;
+  return 'https://timerdfc.zeabur.app/timer.html?' + parameters;
 }
 
 function buildWikitext(template, url, height, width) {
