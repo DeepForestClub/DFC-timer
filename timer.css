@@ -4,24 +4,26 @@ body {
   text-align: center;
 }
 
+#timer {
+  background-color: #eee;
+  border-radius: 1em;
+  padding: 1px;
+}
+
 #title {
   font-size: 1.2em;
   display: flex;
   justify-content: center;
-  background-color: #eee;
   border-radius: 0.2em;
   width: 100%;
-  padding-top: 2px;
-  padding-bottom: 2px;
 }
 
 #clock {
-  background-color: #eee;
-  border-radius: 0.2em;
   display: inline-flex;
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
+  padding-bottom: 5px;
 }
 
 .unit {
@@ -29,18 +31,23 @@ body {
   margin: 0.5em;
   display: flex;
   flex-direction: column;
+  border-radius: 0.35rem;
+  min-width: 2.5rem;
 }
 
 .unit-value {
   font-family: 'Droid Sans Mono', 'DejaVu Sans Mono', monospace;
   font-size: 1.5em;
   background-color: #ccc;
-  border-radius: 0.25em;
-  padding: 0.12em;
+  border-radius: 0.35em 0.35em 0 0;
+  padding: 0.25em;
 }
 
 .unit-label {
   font-size: 0.85em;
+  background-color: #dedede;
+  border-radius: 0 0 0.35em 0.35em;
+  padding-bottom: .35em;
 }
 
 /* Basic utility classes */
