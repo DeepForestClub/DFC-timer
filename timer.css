@@ -7,7 +7,6 @@ body {
 #timer {
   background-color: #eee;
   border-radius: 1em;
-  padding: 1px;
 }
 
 #title {
@@ -16,6 +15,7 @@ body {
   justify-content: center;
   border-radius: 0.2em;
   width: 100%;
+  padding-top: .45em;
 }
 
 #clock {
