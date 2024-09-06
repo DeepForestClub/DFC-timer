@@ -4,7 +4,7 @@ var MINUTES_MS = SECONDS_MS * 60;
 var HOURS_MS = MINUTES_MS * 60;
 var DAYS_MS = HOURS_MS * 24;
 
-// Initialization errors are only in English unfortunately
+// Initialization errors are only in English unfortunately.
 function setError(primary, secondary = null) {
   var errorElement = document.getElementById('error');
   errorElement.classList.remove('hidden');
@@ -22,9 +22,15 @@ function setError(primary, secondary = null) {
 }
 
 // Localization
-function getMessage(language, messageKey) {
-  var translations = {
-    // Simplified Chinese
+var TRANSLATIONS = {
+  // Test _mostly_ returns the message key but there are a few special cases
+  'test': {
+    'template-deletion': 'score: %%score%%\n\nsummary:%%summary%%\n\niframe: %%iframe%%',
+    'summary-deletion-reason-skeleton': '**(%%reason%%).**',
+    'summary-deletion-reasons': ['1', '2', '3'],
+  },
+
+  // Simplified Chinese
     'zh-hans': {
       'timer-description': '此计时器将过期于：',
       'timer-progress': '此计时器将过期于：',
@@ -73,7 +79,7 @@ function getMessage(language, messageKey) {
       'error-invalid': '内部状态无效，请提交错误报告。',
     },
 
-    // Traditional Chinese
+  // Traditional Chinese
     'zh-hant': {
       'timer-description': '此計時器將過期于：',
       'timer-progress': '此計時器將過期于：',
@@ -120,16 +126,12 @@ function getMessage(language, messageKey) {
       'info-source': '來源',
       'error-missing': '請先在每個選擇項完成選擇。',
       'error-invalid': '內部狀態無效，請提交錯誤報告。',
-    },
-  };
-  // Special case:
-  // The 'test' language just echoes the message key back out.
-  if (language === 'test') {
-    return messageKey;
-  }
+  },
+};
 
+function getMessage(language, messageKey, optionalMessage = false) {
   // Get message based on language
-  var messages = translations[language];
+  var messages = TRANSLATIONS[language];
   if (!messages) {
     setError('No translations for language: ' + language);
     return null;
@@ -137,11 +139,32 @@ function getMessage(language, messageKey) {
 
   var message = messages[messageKey];
   if (!message) {
-    setError('No such message key: ' + messageKey);
+    if (language === 'test') {
+      // Special case:
+      // The 'test' language just echoes the message key back out unless overridden.
+      return messageKey;
+    } else if (!optionalMessage) {
+      setError('No such message key: ' + messageKey);
+    }
     return null;
   }
 
   return message;
+}
+
+function getDefaultDeletionScore(language) {
+  switch (String(language)) {
+    case 'cn':
+    case 'vi':
+      return 0;
+    case 'fr':
+    case 'es':
+      return -3;
+    case 'en':
+    case 'pig':
+    default:
+      return -10;
+  }
 }
 
 function insertCSS(styling) {
@@ -175,17 +198,30 @@ function buildUrl(language, startDate, durationMs, progressMessage, finishedMess
     parameters.append('style', styling);
   }
 
-  return 'https://timerdfc.netlify.app/timer.html?' + parameters;
+  return 'https://scpwiki.github.io/timer/timer.html?' + parameters;
 }
 
-function buildWikitext(template, url, height, width) {
+function buildWikitext(language, template, url, score, height, width) {
+  function getSummaryDeletionText() {
+    var summaryDeletionBox = document.getElementById('summary-deletion-reason');
+    if (summaryDeletionBox.value) {
+      var retVal = " " + getMessage(language, 'summary-deletion-reason-skeleton');
+      var reason = summaryDeletionBox.options[summaryDeletionBox.selectedIndex].text;
+      return retVal.replace('%%reason%%', reason);
+    } else {
+      return "";
+    }
+  }
+
   var iframe = [
     '[[iframe ', url, ' style="width: ', width, '; height: ', height, '; border: 0; text-align: center;"]]',
   ].join('');
 
   return template
     .replace('%%url%%', url)
-    .replace('%%iframe%%', iframe);
+    .replace('%%score%%', score)
+    .replace('%%iframe%%', iframe)
+    .replace('%%summary%%', getSummaryDeletionText());
 }
 
 function findCheckedItem(selector) {
@@ -286,7 +322,7 @@ function getTextData(language) {
   };
 }
 
-function buildTimer(language) {
+function buildTimer(language, copyToClipboard) {
   // Unhide output
   var outputElement = document.getElementById('output');
   outputElement.classList.remove('hidden');
@@ -295,6 +331,7 @@ function buildTimer(language) {
   var startDate = getStartDate(language);
   var durationMs = getDuration(language);
   var data = getTextData(language);
+  var score = document.getElementById('deletion-score-value').value;
 
   // Build wikitext and output
   var url = buildUrl(
@@ -306,64 +343,117 @@ function buildTimer(language) {
     data.styling,
   );
 
-  outputElement.value = buildWikitext(data.template, url, data.height, data.width);
+  outputElement.value = buildWikitext(language, data.template, url, score, data.height, data.width);
+
+  if (copyToClipboard) {
+    navigator.clipboard.writeText(outputElement.value);
+  }
+}
+
+function setMessage(language, id, messageKey = null) {
+  document.getElementById(id).innerText = getMessage(language, messageKey || id);
+}
+
+function initializeSummaryDeletionMessages(language) {
+  // Summary deletion reasons vary by site
+  var summaryDeletionBox = document.getElementById('summary-deletion-reason');
+  var messages = getMessage(language, 'summary-deletion-reasons', true);
+  for (var i = 0; i < messages.length; i++) {
+    var message = messages[i];
+    var opt = document.createElement('option');
+    opt.value = opt.innerHTML = message;
+    summaryDeletionBox.appendChild(opt);
+  }
+
+  // Only show summary deletion options if supported by the selected language
+  if (summaryDeletionBox.children.length > 1) {
+    setMessage(language, 'summary-deletion-label', 'summary-deletion');
+    setMessage(language, 'summary-deletion-reason-none');
+  } else {
+    summaryDeletionBox.hidden = true;
+    document.getElementById('summary-deletion-label').hidden = true;
+  }
 }
 
 // Initialization
 function initializeMessages(language) {
-  function setMessage(id, messageKey = null) {
-    document.getElementById(id).innerText = getMessage(language, messageKey || id);
-  }
 
-  var element;
-
-  setMessage('timer-type-label', 'timer-type');
-  setMessage('timer-type-generic-label', 'timer-type-generic');
-  setMessage('timer-type-deletion-label', 'timer-type-deletion');
-  setMessage('timer-type-ban-label', 'timer-type-ban');
+  setMessage(language, 'timer-type-label', 'timer-type');
+  setMessage(language, 'timer-type-generic-label', 'timer-type-generic');
+  setMessage(language, 'timer-type-deletion-label', 'timer-type-deletion');
   setMessage('timer-type-shield-label', 'timer-type-shield');
+  setMessage(language, 'timer-type-ban-label', 'timer-type-ban');
 
-  setMessage('start-label', 'start-time');
-  setMessage('start-now-label', 'start-time-now');
-  setMessage('start-later-label', 'start-time-later');
+  setMessage(language, 'deletion-options-label', 'deletion-options');
+  setMessage(language, 'deletion-score-label', 'deletion-score');
 
-  setMessage('duration-label', 'duration');
-  setMessage('duration-1d-label', 'duration-1d');
-  setMessage('duration-1w-label', 'duration-1w');
-  setMessage('duration-2w-label', 'duration-2w');
-  setMessage('duration-1y-label', 'duration-1y');
-  setMessage('duration-custom-label', 'duration-custom');
+  setMessage(language, 'start-label', 'start-time');
+  setMessage(language, 'start-now-label', 'start-time-now');
+  setMessage(language, 'start-later-label', 'start-time-later');
 
-  setMessage('unit-minute');
-  setMessage('unit-hour');
-  setMessage('unit-day');
-  setMessage('unit-week');
-  setMessage('unit-month');
-  setMessage('unit-year');
+  setMessage(language, 'duration-label', 'duration');
+  setMessage(language, 'duration-1d-label', 'duration-1d');
+  setMessage(language, 'duration-1w-label', 'duration-1w');
+  setMessage(language, 'duration-2w-label', 'duration-2w');
+  setMessage(language, 'duration-1y-label', 'duration-1y');
+  setMessage(language, 'duration-custom-label', 'duration-custom');
 
-  setMessage('messages-label', 'messages');
+  setMessage(language, 'unit-minute');
+  setMessage(language, 'unit-hour');
+  setMessage(language, 'unit-day');
+  setMessage(language, 'unit-week');
+  setMessage(language, 'unit-month');
+  setMessage(language, 'unit-year');
+
+  setMessage(language, 'messages-label', 'messages');
   document.getElementById('message-progress').placeholder = getMessage(language, 'timer-progress');
   document.getElementById('message-finished').placeholder = getMessage(language, 'timer-finished');
-  setMessage('message-progress-label', 'message-progress');
-  setMessage('message-finished-label', 'message-finished');
+  setMessage(language, 'message-progress-label', 'message-progress');
+  setMessage(language, 'message-finished-label', 'message-finished');
 
-  setMessage('advanced-label', 'advanced-section');
-  setMessage('height-label', 'height');
-  setMessage('width-label', 'width');
-  setMessage('custom-css-label', 'css-extra');
-  setMessage('template-label', 'template');
+  setMessage(language, 'advanced-label', 'advanced-section');
+  setMessage(language, 'height-label', 'height');
+  setMessage(language, 'width-label', 'width');
+  setMessage(language, 'custom-css-label', 'css-extra');
+  setMessage(language, 'template-label', 'template');
   document.getElementById('custom-css').placeholder = '#title {\n  color: #008080;\n}';
 
-  setMessage('build', 'build-timer');
-  setMessage('info-help');
-  setMessage('info-source');
+  setMessage(language, 'build', 'build-timer');
+  setMessage(language, 'copy', 'build-and-copy-timer');
+  setMessage(language, 'info-help');
+  setMessage(language, 'info-source');
+
+  initializeSummaryDeletionMessages(language);
+}
+
+function initializeDeletionScore(deletionScore) {
+  var scoreBox = document.getElementById('deletion-score-value');
+  scoreBox.value = deletionScore;
+  scoreBox.onclick = scoreBox.onblur = function() {
+    if (Number(scoreBox.value) > deletionScore) {
+      scoreBox.style.backgroundColor = "yellow";
+    } else {
+      scoreBox.style.backgroundColor = "white";
+    }
+  }
 }
 
 function initializeHooks(language) {
+  function toggleDeletionOptVisibility(show) {
+    var deletionOptElement = document.getElementById('deletion-options');
+    if (show) {
+      deletionOptElement.classList.remove('hidden');
+    } else {
+      deletionOptElement.classList.add('hidden');
+    }
+  }
+
   document.getElementById('timer-type-generic').onclick = function () {
     document.getElementById('message-progress').value = '';
     document.getElementById('message-finished').value = '';
     document.getElementById('template').value = '%%iframe%%';
+
+    toggleDeletionOptVisibility(false);
   };
 
   document.getElementById('timer-type-deletion').onclick = function () {
@@ -371,18 +461,16 @@ function initializeHooks(language) {
     document.getElementById('message-progress').value = getMessage(language, 'message-deletion-progress');
     document.getElementById('message-finished').value = getMessage(language, 'message-deletion-finished');
     document.getElementById('template').value = getMessage(language, 'template-deletion');
+
+    toggleDeletionOptVisibility(true);
   };
 
   document.getElementById('timer-type-ban').onclick = function () {
     document.getElementById('message-progress').value = getMessage(language, 'message-ban-progress');
     document.getElementById('message-finished').value = getMessage(language, 'message-ban-finished');
     document.getElementById('template').value = getMessage(language, 'template-ban');
-  };
 
-  document.getElementById('timer-type-shield').onclick = function () {
-    document.getElementById('message-progress').value = getMessage(language, 'message-shield-progress');
-    document.getElementById('message-finished').value = getMessage(language, 'message-shield-finished');
-    document.getElementById('template').value = getMessage(language, 'template-shield');
+    toggleDeletionOptVisibility(false);
   };
 
   function onClickStartDate() {
@@ -400,7 +488,10 @@ function initializeHooks(language) {
   document.getElementById('duration-custom-unit').onclick = onClickCustom;
 
   document.getElementById('build').onclick = function () {
-    buildTimer(language);
+    buildTimer(language, false);
+  };
+  document.getElementById('copy').onclick = function () {
+    buildTimer(language, true);
   };
 }
 
@@ -410,11 +501,16 @@ function setup() {
   var parameters = new URLSearchParams(url.search);
   var language = parameters.get('lang');
   var styling = parameters.get('style');
+  var deletionScore = parameters.get('delScore');
 
   // Check parameters
   if (!language) {
-    setError('No language set', 'Parameter is "lang" Use language code.');
+    setError('No language set', 'Parameter is "lang". Use "en" for English.');
     return;
+  }
+
+  if (!deletionScore) {
+    deletionScore = getDefaultDeletionScore(language);
   }
 
   // Insert custom CSS, if any
@@ -423,6 +519,7 @@ function setup() {
   }
 
   initializeMessages(language);
+  initializeDeletionScore(deletionScore);
   initializeHooks(language);
 }
 
