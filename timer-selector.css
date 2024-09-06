@@ -23,18 +23,16 @@ fieldset {
   width: 25%;
 }
 
+.text-tiny input {
+  width: 3em;
+}
+
 #build {
   margin: 0.4em;
 }
 
 .info {
   font-size: 0.8em;
-}
-
-#custom-css,
-#template,
-#output {
-  width: 79.2%;
 }
 
 /* Basic utility classes */
@@ -54,10 +52,4 @@ fieldset {
 #output {
   font-family: 'Droid Sans Mono', 'DejaVu Sans Mono', monospace;
   margin: 0.25em;
-}
-
-#clock {
-  border: #ff0000;
-  border-style: solid;
-  white-space: nowrap;
 }
