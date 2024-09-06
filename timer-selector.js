@@ -505,7 +505,7 @@ function setup() {
 
   // Check parameters
   if (!language) {
-    setError('No language set', 'Parameter is "lang". Use "en" for English.');
+    setError('No language set', 'Parameter is "lang". Use "zh-hana" for Simplified Chinese.');
     return;
   }
 
