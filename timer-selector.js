@@ -154,14 +154,6 @@ function getMessage(language, messageKey, optionalMessage = false) {
 
 function getDefaultDeletionScore(language) {
   switch (String(language)) {
-    case 'cn':
-    case 'vi':
-      return 0;
-    case 'fr':
-    case 'es':
-      return -3;
-    case 'en':
-    case 'pig':
     default:
       return -10;
   }
