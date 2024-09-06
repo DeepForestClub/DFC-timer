@@ -198,7 +198,7 @@ function buildUrl(language, startDate, durationMs, progressMessage, finishedMess
     parameters.append('style', styling);
   }
 
-  return 'https://scpwiki.github.io/timer/timer.html?' + parameters;
+  return 'https://timerdfc.pages.dev/timer.html?' + parameters;
 }
 
 function buildWikitext(language, template, url, score, height, width) {
