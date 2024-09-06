@@ -35,6 +35,12 @@ fieldset {
   font-size: 0.8em;
 }
 
+#custom-css,
+#template,
+#output {
+  width: 79.2%;
+}
+
 /* Basic utility classes */
 .hidden {
   display: none;
