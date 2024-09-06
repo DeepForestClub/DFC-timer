@@ -77,7 +77,7 @@ var TRANSLATIONS = {
       'info-source': '来源',
       'error-missing': '请先在每个项中做选择。',
       'error-invalid': '内部状态无效，请提交错误报告。',
-    },
+  },
 
   // Traditional Chinese
     'zh-hant': {
@@ -381,8 +381,8 @@ function initializeMessages(language) {
   setMessage(language, 'timer-type-label', 'timer-type');
   setMessage(language, 'timer-type-generic-label', 'timer-type-generic');
   setMessage(language, 'timer-type-deletion-label', 'timer-type-deletion');
-  setMessage('timer-type-shield-label', 'timer-type-shield');
   setMessage(language, 'timer-type-ban-label', 'timer-type-ban');
+  setMessage(language,'timer-type-shield-label', 'timer-type-shield');
 
   setMessage(language, 'deletion-options-label', 'deletion-options');
   setMessage(language, 'deletion-score-label', 'deletion-score');
