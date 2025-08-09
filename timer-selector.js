@@ -127,7 +127,7 @@ var TRANSLATIONS = {
     'shield-options': '屏蔽選項',
     'shield-options-user': '屏蔽用戶',
     'shield-options-date': '屏蔽日期',
-    'shield-options-appeal': '申诉情况',
+    'shield-options-appeal': '申訴情況',
     'shield-options-appeal-allow': '允許',
     'shield-options-appeal-forbid': '不允許',
     'shield-options-describe': '違規行為描述',
