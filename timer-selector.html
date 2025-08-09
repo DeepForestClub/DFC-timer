@@ -56,6 +56,60 @@
       </div>
     </fieldset>
 
+    <fieldset id="ban-options" class="hidden">
+      <legend id="ban-options-label"></legend>
+      <div class="options-grid">
+        <fieldset class="basic text text-tiny">
+          <label id="ban-options-user-label"></label>
+          <input id="ban-options-user-value" class="banuser-size" type="text"></input>
+          </br>
+          <label id="ban-options-date-label"></label>
+          <input id="ban-options-date-value" class="bandate-size" type="date"></input>
+        </fieldset>
+        <fieldset class="activity text">
+          <label id="ban-options-describe-label"></label>
+          <input id="ban-options-describe-value" type="text"></input>
+          </br>
+          <label id="ban-options-rule-label"></label><br>
+          <textarea id="ban-options-rule" cols="60" rows="3"></textarea>
+        </fieldset>
+        <fieldset class="other text text-tiny">
+          <label id="ban-options-appeal-label"></label>
+          <select id="ban-options-appeal">
+            <option id="ban-options-appeal-allow-label" value="violation"></option>
+            <option id="ban-options-appeal-forbid-label" value="cheating"></option>
+          </select>
+        </fieldset>
+      </div>
+    </fieldset>
+
+    <fieldset id="shield-options" class="hidden">
+      <legend id="shield-options-label"></legend>
+      <div class="options-grid">
+        <fieldset class="basic text text-tiny">
+          <label id="shield-options-user-label"></label>
+          <input id="shield-options-user-value" class="banuser-size" type="text"></input>
+          </br>
+          <label id="shield-options-date-label"></label>
+          <input id="shield-options-date-value" class="bandate-size" type="date"></input>
+        </fieldset>
+        <fieldset class="activity text">
+          <label id="shield-options-describe-label"></label>
+          <input id="shield-options-describe-value" type="text"></input>
+          </br>
+          <label id="shield-options-rule-label"></label><br>
+          <textarea id="shield-options-rule" cols="60" rows="3"></textarea>
+        </fieldset>
+        <fieldset class="other text text-tiny">
+          <label id="shield-options-appeal-label"></label>
+          <select id="shield-options-appeal">
+            <option id="shield-options-appeal-allow-label" value="violation"></option>
+            <option id="shield-options-appeal-forbid-label" value="cheating"></option>
+          </select>
+        </fieldset>
+      </div>
+    </fieldset>
+
     <fieldset id="start">
       <legend id="start-label"></legend>
 
@@ -81,6 +135,12 @@
       <span>
         <input id="duration-1d" type="radio" name="duration" value="86400000" checked>
         <label id="duration-1d-label" for="86400000"></label> <!-- in ms -->
+      </span>
+
+      <!-- 2 day -->
+      <span>
+        <input id="duration-2d" type="radio" name="duration" value="172800000" checked>
+        <label id="duration-2d-label" for="172800000"></label> <!-- in ms -->
       </span>
 
       <!-- 1 week -->
@@ -120,39 +180,41 @@
     <fieldset id="messages">
       <legend id="messages-label"></legend>
 
-      <div class="text">
+      <fieldset class="text">
         <label id="message-progress-label"></label>
         <input id="message-progress" type="text"></input>
-      </div>
+      </fieldset>
 
-      <div class="text">
+      <fieldset class="text">
         <label id="message-finished-label"></label>
         <input id="message-finished" type="text"></input>
-      </div>
+      </fieldset>
     </fieldset>
 
     <fieldset id="advanced">
       <legend id="advanced-label"></legend>
 
-      <div class="text text-short">
-        <label id="height-label"></label>
-        <input id="height" type="text" value="165px"></input>
-      </div>
+      <fieldset>
+        <div class="text text-short">
+          <label id="height-label"></label>
+          <input id="height" type="text" value="165px"></input>
+        </div>
 
-      <div class="text text-short">
-        <label id="width-label"></label>
-        <input id="width" type="text" value="100%"></input>
-      </div>
+        <div class="text text-short">
+          <label id="width-label"></label>
+          <input id="width" type="text" value="100%"></input>
+        </div>
+      </fieldset>
 
-      <div class="text">
+      <fieldset class="text">
         <label id="custom-css-label"></label><br>
         <textarea id="custom-css" cols="60" rows="4"></textarea>
-      </div>
+      </fieldset>
 
-      <div class="text">
+      <fieldset class="text">
         <label id="template-label"></label><br>
         <textarea id="template" cols="60" rows="4">%%iframe%%</textarea>
-      </div>
+      </fieldset>
     </fieldset>
 
     <div>
@@ -167,7 +229,7 @@
   </div>
 
   <!-- output -->
-  <div><textarea id="output" class="hidden" cols="60" rows="4" readonly></textarea></div>
+  <div><textarea id="output" class="hidden" cols="60" rows="5" readonly></textarea></div>
 </body>
 
 </html>

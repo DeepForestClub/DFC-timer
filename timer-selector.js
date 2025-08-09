@@ -43,8 +43,27 @@ var TRANSLATIONS = {
     'deletion-options': '删除选项',
     'deletion-score': '当前文章的分数为',
     'summary-deletion-reasons': [],
+    'ban-options': '封禁选项',
+    'ban-options-user': '封禁用户',
+    'ban-options-date': '封禁日期',
+    'ban-options-appeal': '申诉情况',
+    'ban-options-appeal-allow': '允许',
+    'ban-options-appeal-forbid': '不允许',
+    'ban-options-describe': '违规行为描述',
+    'ban-options-rule': '封禁规则依据（必填）',
+    'ban-options-rule-placeholder': '* 网站站规 - 社区环境相关\n * 第X条 - 第X款 规则内容 ',
+    'shield-options': '屏蔽选项',
+    'shield-options-user': '屏蔽用户',
+    'shield-options-date': '屏蔽日期',
+    'shield-options-appeal': '申诉情况',
+    'shield-options-appeal-allow': '允许',
+    'shield-options-appeal-forbid': '不允许',
+    'shield-options-describe': '违规行为描述',
+    'shield-options-rule': '屏蔽规则依据（必填）',
+    'shield-options-rule-placeholder': '* 网站站规 - 社区环境相关\n * 第X条 - 第X款 规则内容 ',
     'duration': '运行时间',
     'duration-1d': '1日',
+    'duration-2d': '2日',
     'duration-1w': '1周',
     'duration-2w': '2周',
     'duration-1y': '1年',
@@ -66,9 +85,9 @@ var TRANSLATIONS = {
     'width': '宽度',
     'css-extra': '自定计时器样式（可选）',
     'template': '输出模板',
-    'template-deletion': '本文章目前为%%score%%分，现依据[[[deletions-guide|删除指导]]]宣告将删除此页面：\n\n%%iframe%%\n\n请本文章作者尽快进行修改内容提高质量。\n如果该页面作者无法及时做出更改，其他人也可以在确认后向管理组申请重写。',
-    'template-ban': '[[div class=\"blockquote\"]]\n**XXXX年XX月XX日：**网站成员[[*user USERNAME]]【违规行为】，根据以下规则和内容：\n【网站站规内容】\n\n将要对该网站成员进行封禁处分：\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。本次处分允许\\不允许申诉。\n[[/div]]',
-    'template-shield': '[[div class=\"blockquote\"]]\n**XXXX年XX月XX日：**网站成员[[*user USERNAME]]【违规行为】，其滥用功能并根据以下规则和内容：\n【网站站规内容】\n\n将要对该网站成员进行限制讨论功能的处分：\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。本次处分允许\\不允许申诉。\n[[/div]]',
+    'template-deletion': '此文章目前为%%score%%分，现依据[[[deletions-guide|删除指导]]]宣告将删除此页面：\n\n%%iframe%%\n\n请本文章作者尽快进行修改内容提高质量。\n如果该页面作者无法及时做出更改，其他人也可以在确认后向管理组申请重写。',
+    'template-ban': '[[div class=\"blockquote\"]]\n**%%banDate%%：**网站成员[[*user %%banUser%%]]涉及到%%banDescribe%%的违规行为，根据以下规则和内容：\n%%banRule%%\n\n将要对该网站成员进行封禁处分：\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。本次处分%%banAppeal%%申诉。\n[[/div]]',
+    'template-shield': '[[div class=\"blockquote\"]]\n**%%shieldDate%%：**网站成员[[*user %%shieldUser%%]]涉及到%%shieldDescribe%%的违规行为，其滥用功能并根据以下规则和内容：\n%%shieldRule%%\n\n将要对该网站成员进行限制讨论功能的处分：\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。本次处分%%shieldAppeal%%申诉。\n[[/div]]',
     'message-deletion-progress': '此页面将在以下时间后删除：',
     'message-deletion-finished': '此页面在以下时间前可删除：',
     'message-ban-progress': '此用户封禁将到期于：',
@@ -96,8 +115,27 @@ var TRANSLATIONS = {
     'deletion-options': '刪除選項',
     'deletion-score': '目前文章分數為',
     'summary-deletion-reasons': [],
+    'ban-options': '封禁選項',
+    'ban-options-user': '封禁用戶',
+    'ban-options-date': '封禁日期',
+    'ban-options-appeal': '申诉情况',
+    'ban-options-appeal-allow': '允許',
+    'ban-options-appeal-forbid': '不允許',
+    'ban-options-describe': '違規行為描述',
+    'ban-options-rule': '封禁規則依據（必填）',
+    'ban-options-rule-placeholder': '* 網站站規 - 社區環境相關\n * 第X條 - 第X款 規則內容 ',
+    'shield-options': '屏蔽選項',
+    'shield-options-user': '屏蔽用戶',
+    'shield-options-date': '屏蔽日期',
+    'shield-options-appeal': '申诉情况',
+    'shield-options-appeal-allow': '允許',
+    'shield-options-appeal-forbid': '不允許',
+    'shield-options-describe': '違規行為描述',
+    'shield-options-rule': '屏蔽規則依據（必填）',
+    'shield-options-rule-placeholder': '* 網站站規 - 社區環境相關\n * 第X條 - 第X款 規則內容 ',
     'duration': '運行時間',
     'duration-1d': '1日',
+    'duration-2d': '2日',
     'duration-1w': '1周',
     'duration-2w': '2周',
     'duration-1y': '1年',
@@ -119,9 +157,9 @@ var TRANSLATIONS = {
     'width': '寬度',
     'css-extra': '自定義計時器樣式（可選）',
     'template': '輸出内容模板',
-    'template-deletion': '本文章目前為%%score%%分，現依據[[[deletions-guide|刪除指導]]]宣告將刪除此頁面：\n\n%%iframe%%\n\n請本文章的作者快速修改内容提高質量。\n如果該頁面作者無法及時的修改，其他人也可以在確認后向管理組申請重寫。',
-    'template-ban': '[[div class=\"blockquote\"]]\n**XXXX年XX月XX日：**網站成員[[*user USERNAME]]【違規行爲】，根據以下規則和内容：\n【網站站規内容】\n\n將要對該網站成員進行封禁處分：\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係管理組。本次處分允許\\不允許申訴。\n[[/div]]',
-    'template-shield': '[[div class=\"blockquote\"]]\n**XXXX年XX月XX日：**網站成員[[*user USERNAME]]【違規行爲】，其濫用功能並根據以下規則和内容：\n【網站站規内容】\n\n將要對該網站成員進行限制討論功能的處分：\n%%iframe%%\n\n如果對此次處理結果有疑問，可以聯係管理組。本次處分允許\\不允許申訴。\n[[/div]]',
+    'template-deletion': '此文章目前为%%score%%分，现依据[[[deletions-guide|删除指导]]]宣告将删除此页面：\n\n%%iframe%%\n\n请本文章作者尽快进行修改内容提高质量。\n如果该页面作者无法及时做出更改，其他人也可以在确认后向管理组申请重写。',
+    'template-ban': '[[div class="blockquote"]]\n**%%banDate%%：**网站成员[[*user %%banUser%%]]涉及到%%banDescribe%%的违规行为，根据以下规则和内容：\n%%banRule%%\n\n将要对该网站成员进行封禁处分：\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。本次处分%%banAppeal%%申诉。\n[[/div]]',
+    'template-shield': '[[div class="blockquote"]]\n**%%shieldDate%%：**网站成员[[*user %%shieldUser%%]]涉及到%%shieldDescribe%%的违规行为，其滥用功能并根据以下规则和内容：\n%%shieldRule%%\n\n将要对该网站成员进行限制讨论功能的处分：\n%%iframe%%\n\n如果对此次处理结果有疑问，可以联系管理组。本次处分%%shieldAppeal%%申诉。\n[[/div]]',
     'message-deletion-progress': '此頁面將在以下時間後刪除：',
     'message-deletion-finished': '此頁面在以下時間前可刪除：',
     'message-ban-progress': '此用戶封禁将過期于：',
@@ -213,6 +251,114 @@ function buildWikitext(language, template, url, score, height, width) {
     }
   }
 
+  function getBanUserText() {
+    var banUserBox = document.getElementById('ban-options-user-value');
+    if (banUserBox.value) {
+      var retBanUser = banUserBox.value;
+      return retBanUser.replace('%%banUser%%', retBanUser);
+    } else {
+      return "USERNAME";
+    }
+  }
+
+  function getBanDateText() {
+    var banDateBox = document.getElementById('ban-options-date-value').valueAsNumber;
+    if (banDateBox) {
+      var date = new Date(banDateBox);
+      var year = date.getFullYear();
+      var month = ('0' + (date.getMonth() + 1)).slice(-2);
+      var day = ('0' + date.getDate()).slice(-2);
+      var retBanDate = year + '年' + month + '月' + day + '日';
+      return retBanDate.replace('%%banDate%%', retBanDate);
+    } else {
+      return "YYYY年MM月DD日";
+    }
+  }
+
+  function getBanDescribeText() {
+    var banDescribeBox = document.getElementById('ban-options-describe-value');
+    if (banDescribeBox.value) {
+      var retBanDescribe = banDescribeBox.value;
+      return retBanDescribe.replace('%%banDescribe%%', retBanDescribe);
+    } else {
+      return "【违规行为】";
+    }
+  }
+
+  function getBanRuleText() {
+    var banRuleBox = document.getElementById('ban-options-rule');
+    if (banRuleBox.value) {
+      var retBanRule = banRuleBox.value;
+      return retBanRule.replace('%%banRule%%', retBanRule);
+    } else {
+      return "【网站站规内容】";
+    }
+  }
+
+  function getBanAppealText() {
+    var banAppealBox = document.getElementById('ban-options-appeal');
+    if (banAppealBox.value) {
+      var retBanAppeal = banAppealBox.options[banAppealBox.selectedIndex].text;
+      return retBanAppeal.replace('%%banAppeal%%', retBanAppeal);
+    } else {
+      return "";
+    }
+  }
+
+  function getShieldUserText() {
+    var shieldUserBox = document.getElementById('shield-options-user-value');
+    if (shieldUserBox.value) {
+      var retShieldUser = shieldUserBox.value;
+      return retShieldUser.replace('%%shieldUser%%', retShieldUser);
+    } else {
+      return "USERNAME";
+    }
+  }
+
+  function getShieldDateText() {
+    var shieldDateBox = document.getElementById('shield-options-date-value').valueAsNumber;
+    if (shieldDateBox) {
+      var date = new Date(shieldDateBox);
+      var year = date.getFullYear();
+      var month = ('0' + (date.getMonth() + 1)).slice(-2);
+      var day = ('0' + date.getDate()).slice(-2);
+      var retShieldDate = year + '年' + month + '月' + day + '日';
+      return retShieldDate.replace('%%shieldDate%%', retShieldDate);
+    } else {
+      return "YYYY年MM月DD日";
+    }
+  }
+
+  function getShieldDescribeText() {
+    var shieldDescribeBox = document.getElementById('shield-options-describe-value');
+    if (shieldDescribeBox.value) {
+      var retShieldDescribe = shieldDescribeBox.value;
+      return retShieldDescribe.replace('%%shieldDescribe%%', retShieldDescribe);
+    } else {
+      return "【违规行为】";
+    }
+  }
+
+  function getShieldRuleText() {
+    var shieldRuleBox = document.getElementById('shield-options-rule');
+    if (shieldRuleBox.value) {
+      var retShieldRule = shieldRuleBox.value;
+      return retShieldRule.replace('%%shieldRule%%', retShieldRule);
+    } else {
+      return "【网站站规内容】";
+    }
+  }
+
+  function getShieldAppealText() {
+    var shieldAppealBox = document.getElementById('shield-options-appeal');
+    if (shieldAppealBox.value) {
+      var retShieldAppeal = shieldAppealBox.options[shieldAppealBox.selectedIndex].text;
+      return retShieldAppeal.replace('%%shieldAppeal%%', retShieldAppeal);
+    } else {
+      return "";
+    }
+  }
+
   var iframe = [
     '[[iframe ', url, ' style="width: ', width, '; height: ', height, '; border: 0; text-align: center;"]]',
   ].join('');
@@ -221,7 +367,17 @@ function buildWikitext(language, template, url, score, height, width) {
     .replace('%%url%%', url)
     .replace('%%score%%', score)
     .replace('%%iframe%%', iframe)
-    .replace('%%summary%%', getSummaryDeletionText());
+    .replace('%%summary%%', getSummaryDeletionText())
+    .replace('%%banUser%%', getBanUserText())
+    .replace('%%banDate%%', getBanDateText())
+    .replace('%%banDescribe%%', getBanDescribeText())
+    .replace('%%banRule%%', getBanRuleText())
+    .replace('%%banAppeal%%', getBanAppealText())
+    .replace('%%shieldUser%%', getShieldUserText())
+    .replace('%%shieldDate%%', getShieldDateText())
+    .replace('%%shieldDescribe%%', getShieldDescribeText())
+    .replace('%%shieldRule%%', getShieldRuleText())
+    .replace('%%shieldAppeal%%', getShieldAppealText());
 }
 
 function findCheckedItem(selector) {
@@ -387,12 +543,33 @@ function initializeMessages(language) {
   setMessage(language, 'deletion-options-label', 'deletion-options');
   setMessage(language, 'deletion-score-label', 'deletion-score');
 
+  setMessage(language, 'ban-options-label', 'ban-options');
+  setMessage(language, 'ban-options-user-label', 'ban-options-user');
+  setMessage(language, 'ban-options-date-label', 'ban-options-date');
+  setMessage(language, 'ban-options-appeal-label', 'ban-options-appeal');
+  setMessage(language, 'ban-options-appeal-allow-label', 'ban-options-appeal-allow');
+  setMessage(language, 'ban-options-appeal-forbid-label', 'ban-options-appeal-forbid');
+  setMessage(language, 'ban-options-describe-label', 'ban-options-describe');
+  setMessage(language, 'ban-options-rule-label', 'ban-options-rule');
+  document.getElementById('ban-options-rule').placeholder = getMessage(language, 'ban-options-rule-placeholder');
+
+  setMessage(language, 'shield-options-label', 'shield-options');
+  setMessage(language, 'shield-options-user-label', 'shield-options-user');
+  setMessage(language, 'shield-options-date-label', 'shield-options-date');
+  setMessage(language, 'shield-options-appeal-label', 'shield-options-appeal');
+  setMessage(language, 'shield-options-appeal-allow-label', 'shield-options-appeal-allow');
+  setMessage(language, 'shield-options-appeal-forbid-label', 'shield-options-appeal-forbid');
+  setMessage(language, 'shield-options-describe-label', 'shield-options-describe');
+  setMessage(language, 'shield-options-rule-label', 'shield-options-rule');
+  document.getElementById('shield-options-rule').placeholder = getMessage(language, 'shield-options-rule-placeholder');
+
   setMessage(language, 'start-label', 'start-time');
   setMessage(language, 'start-now-label', 'start-time-now');
   setMessage(language, 'start-later-label', 'start-time-later');
 
   setMessage(language, 'duration-label', 'duration');
   setMessage(language, 'duration-1d-label', 'duration-1d');
+  setMessage(language, 'duration-2d-label', 'duration-2d');
   setMessage(language, 'duration-1w-label', 'duration-1w');
   setMessage(language, 'duration-2w-label', 'duration-2w');
   setMessage(language, 'duration-1y-label', 'duration-1y');
@@ -448,37 +625,67 @@ function initializeHooks(language) {
     }
   }
 
+  function toggleBanOptVisibility(show) {
+    var banOptElement = document.getElementById('ban-options');
+    if (show) {
+      banOptElement.classList.remove('hidden');
+    } else {
+      banOptElement.classList.add('hidden');
+    }
+  }
+
+  function toggleShieldOptVisibility(show) {
+    var shieldOptElement = document.getElementById('shield-options');
+    if (show) {
+      shieldOptElement.classList.remove('hidden');
+    } else {
+      shieldOptElement.classList.add('hidden');
+    }
+  }
+
+  document.getElementById('duration-1d').click();
   document.getElementById('timer-type-generic').onclick = function () {
+    document.getElementById('duration-1d').click();
     document.getElementById('message-progress').value = '';
     document.getElementById('message-finished').value = '';
     document.getElementById('template').value = '%%iframe%%';
 
     toggleDeletionOptVisibility(false);
+    toggleBanOptVisibility(false);
+    toggleShieldOptVisibility(false);
   };
 
   document.getElementById('timer-type-deletion').onclick = function () {
-    document.getElementById('duration-1d').click();
+    document.getElementById('duration-2d').click();
     document.getElementById('message-progress').value = getMessage(language, 'message-deletion-progress');
     document.getElementById('message-finished').value = getMessage(language, 'message-deletion-finished');
     document.getElementById('template').value = getMessage(language, 'template-deletion');
 
     toggleDeletionOptVisibility(true);
+    toggleBanOptVisibility(false);
+    toggleShieldOptVisibility(false);
   };
 
   document.getElementById('timer-type-ban').onclick = function () {
+    document.getElementById('duration-1d').click();
     document.getElementById('message-progress').value = getMessage(language, 'message-ban-progress');
     document.getElementById('message-finished').value = getMessage(language, 'message-ban-finished');
     document.getElementById('template').value = getMessage(language, 'template-ban');
 
     toggleDeletionOptVisibility(false);
+    toggleBanOptVisibility(true);
+    toggleShieldOptVisibility(false);
   };
 
   document.getElementById('timer-type-shield').onclick = function () {
+    document.getElementById('duration-1d').click();
     document.getElementById('message-progress').value = getMessage(language, 'message-shield-progress');
     document.getElementById('message-finished').value = getMessage(language, 'message-shield-finished');
     document.getElementById('template').value = getMessage(language, 'template-shield');
 
     toggleDeletionOptVisibility(false);
+    toggleBanOptVisibility(false);
+    toggleShieldOptVisibility(true);
   };
 
 

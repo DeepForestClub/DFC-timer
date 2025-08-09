@@ -3,8 +3,12 @@ body {
   font-family: Arial, sans-serif;
 }
 
+#form {
+  max-width: 900px;
+}
+
 fieldset {
-  margin: 0.2em;
+  margin: 0.25em;
 }
 
 .radio-text {
@@ -27,6 +31,14 @@ fieldset {
   width: 3em;
 }
 
+.text-tiny input.banuser-size {
+  width: 6.5em;
+}
+
+.text-tiny input.bandate-size {
+  width: 8em;
+}
+
 #build {
   margin: 0.4em;
 }
@@ -35,10 +47,47 @@ fieldset {
   font-size: 0.8em;
 }
 
+#ban-options-rule,
+#shield-options-rule,
 #custom-css,
 #template,
 #output {
-  width: 79.2%;
+  width: 85%;
+  font-size: 0.85em;
+}
+
+#output {
+  max-width: 800px;
+}
+
+/* Options grid style */
+.options-grid {
+  display: grid;
+  grid-template-areas:
+    "basic activity"
+    "other activity";
+}
+
+@media only screen and (max-width: 643px) {
+  .options-grid {
+    display: grid;
+    grid-template-areas:
+      "basic"
+      "activity"
+      "other";
+  }
+}
+
+.options-grid .basic {
+  grid-area: basic;
+}
+
+.options-grid .activity {
+  grid-area: activity;
+}
+
+.options-grid .other {
+  grid-area: other;
 }
 
 /* Basic utility classes */
