@@ -41,6 +41,11 @@ fieldset {
   width: 16.2ch;
 }
 
+input[type=radio] {
+  height: 11px;
+  width: 11px;
+}
+
 #duration-custom-value {
   width: 8ch;
 }
