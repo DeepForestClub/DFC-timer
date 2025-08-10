@@ -33,12 +33,12 @@ fieldset {
   width: 3em;
 }
 
-.text-tiny input.banuser-size {
+.text-tiny input.user-size {
   width: 6.5em;
 }
 
-.text-tiny input.bandate-size {
-  width: 8em;
+.text-tiny input.date-size {
+  width: 16.2ch;
 }
 
 #duration-custom-value {
