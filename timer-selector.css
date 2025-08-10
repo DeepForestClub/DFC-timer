@@ -1,7 +1,7 @@
 /* Main elements */
 body {
   font-family: Arial, sans-serif;
-  font-size: 0.8em;
+  font-size: 13.0892px;
 }
 
 #form {
@@ -39,6 +39,10 @@ fieldset {
 
 .text-tiny input.bandate-size {
   width: 8em;
+}
+
+#duration-custom-value {
+  width: 8ch;
 }
 
 #build {
