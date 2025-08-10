@@ -1,6 +1,7 @@
 /* Main elements */
 body {
   font-family: Arial, sans-serif;
+  font-size: 0.8em;
 }
 
 #form {
@@ -21,6 +22,7 @@ fieldset {
 
 .text input {
   width: 50%;
+  font-size: 80%;
 }
 
 .text-short input {
