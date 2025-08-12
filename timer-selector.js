@@ -21,6 +21,15 @@ function setError(primary, secondary = null) {
   }
 }
 
+// Set color mode
+function checkDarkTheme() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+  }
+}
+document.addEventListener('DOMContentLoaded', checkDarkTheme);
+
 // Localization
 var TRANSLATIONS = {
   // Test _mostly_ returns the message key but there are a few special cases

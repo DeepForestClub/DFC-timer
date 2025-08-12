@@ -73,6 +73,7 @@ input[type=radio] {
 
 /* Options grid style */
 .options-grid {
+  display: -ms-grid;
   display: grid;
   grid-template-areas:
     "basic activity"
@@ -81,6 +82,7 @@ input[type=radio] {
 
 @media only screen and (max-width: 643px) {
   .options-grid {
+    display: -ms-grid;
     display: grid;
     grid-template-areas:
       "basic"
@@ -90,15 +92,82 @@ input[type=radio] {
 }
 
 .options-grid .basic {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
   grid-area: basic;
 }
 
 .options-grid .activity {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
   grid-area: activity;
 }
 
 .options-grid .other {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
   grid-area: other;
+}
+
+@media only screen and (max-width: 643px) {
+  .options-grid .basic {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .options-grid .activity {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+  }
+
+  .options-grid .other {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+}
+
+/* Dark theme styles*/
+.dark:root {
+  background: #202020;
+  color: rgb(210, 210, 210);
+}
+
+.dark:root a {
+  color: #fff;
+}
+
+.dark:root textarea {
+  background: black;
+  color: rgb(210, 210, 210);
+  border: 1px solid #c1c1c1;
+}
+
+.dark:root input,
+.dark:root select,
+.dark:root button {
+  background: black !important;
+  color: rgb(210, 210, 210);
+  accent-color: #fff;
+  border: 1px solid #c1c1c1;
+  border-radius: 4px;
+  padding: 2.5px 5px;
+}
+
+.dark:root input[type="number"]::-webkit-inner-spin-button,
+.dark:root input[type="number"]::-webkit-outer-spin-button {
+  background-color: #252424;
+  color: rgb(210, 210, 210);
+}
+
+.dark input[type="number"] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+.dark:root button:hover {
+  background: #202020;
 }
 
 /* Basic utility classes */
