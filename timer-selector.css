@@ -4,6 +4,10 @@ body {
   font-size: 13.0892px;
 }
 
+:focus-visible {
+  outline: unset;
+}
+
 #form {
   max-width: 900px;
 }
