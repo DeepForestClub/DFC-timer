@@ -143,7 +143,7 @@ input[type=radio] {
 }
 
 .dark:root textarea {
-  background: black;
+  background: #282828 !important;
   color: rgb(210, 210, 210);
   border: 1px solid #c1c1c1;
 }
@@ -151,9 +151,8 @@ input[type=radio] {
 .dark:root input,
 .dark:root select,
 .dark:root button {
-  background: black !important;
+  background: #282828 !important;
   color: rgb(210, 210, 210);
-  accent-color: #fff;
   border: 1px solid #c1c1c1;
   border-radius: 4px;
   padding: 2.5px 5px;
