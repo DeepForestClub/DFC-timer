@@ -2,6 +2,7 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
+  margin: 0;
 }
 
 #timer {
@@ -13,8 +14,6 @@ body {
   font-size: 1.2em;
   display: flex;
   justify-content: center;
-  border-radius: 0.2em;
-  width: 100%;
   padding-top: .45em;
 }
 
@@ -23,7 +22,7 @@ body {
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
-  padding-bottom: 5px;
+  /*! padding-bottom: 5px; */
 }
 
 .unit {
@@ -32,7 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 0.35rem;
-  min-width: 2.5rem;
+  min-width: 4ch;
 }
 
 .unit-value {
